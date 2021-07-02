@@ -1,0 +1,20 @@
+{
+  "short_name": "DND",
+  "name": "DiamondHand - The world's first partial-collateralized synthetic assets platform",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon-192.png",
+      "type": "image/png",
+      "sizes": "100x80"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
