@@ -44,7 +44,7 @@ const TransactionWrapper = styled.div`
 const TransactionStatusText = styled.div`
   display: flex;
   font-size: 14px;
-  color: ${(props) => props.theme.color.primary.main};
+  color: #e2e2e2;
   align-items: center;
   :hover {
     text-decoration: underline;

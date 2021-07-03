@@ -1,13 +1,11 @@
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
-import Modal, { ModalCloseButton, ModalProps } from '../Modal';
+import Modal, { ModalProps } from '../Modal';
 import Identicon from 'identicon.js';
 import { useDisconnectAccount } from 'src/state/application/hooks';
 import { useWeb3React } from '@web3-react/core';
 import AccountTransactions from './AccountTransactions';
 import { useConfiguration } from 'src/contexts/ConfigProvider/ConfigProvider';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/pro-light-svg-icons';
 
 const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
   const config = useConfiguration();
@@ -38,9 +36,6 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
 
   return (
     <Modal size="md" padding="0">
-      <ModalCloseButton onClick={onDismiss}>
-        <FontAwesomeIcon icon={faTimes} />
-      </ModalCloseButton>
       <WalletInfo>
         <WalletInfoIcon src={iconAccount}></WalletInfoIcon>
         <WalletInfoMain>
@@ -50,7 +45,9 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
           <WalletTitle>Connected</WalletTitle>
         </WalletInfoMain>
         <GroupButton>
-          <ActionDisconnect onClick={disconnect}>Disconnect</ActionDisconnect>
+          <ActionDisconnect className="btn" onClick={disconnect}>
+            Disconnect
+          </ActionDisconnect>
           <ActionBscScan href={`${config.etherscanUrl}/address/${account}`} target="_blank">
             Go to Explorer
           </ActionBscScan>
@@ -65,8 +62,8 @@ const WalletInfo = styled.div`
   display: flex;
   align-items: center;
   padding: 18px 24px;
-  background: ${({ theme }) => theme.color.blue[50]};
-  border-bottom: solid 1px ${({ theme }) => `${theme.color.primary.main}55`};
+  background: #1a1e22;
+  border-radius: 10px;
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     flex-direction: column;
   }
@@ -82,7 +79,6 @@ const AccountNumberContainer = styled.div`
 
 const AccountNumber = styled.span`
   font-size: 20px;
-  color: ${({ theme }) => theme.color.primary.main};
   font-weight: bold;
 `;
 
@@ -112,42 +108,36 @@ const GroupButton = styled.div`
 `;
 
 const ActionDisconnect = styled.button`
-  display: flex;
-  align-self: center;
-  align-items: center;
-  margin-left: 10px;
-  background-color: transparent;
-  appearance: none;
-  cursor: pointer;
-  font-size: 16px;
-  padding: 2px 8px;
-  color: ${({ theme }) => theme.color.red[500]};
-  border: 3px solid ${({ theme }) => theme.color.red[500]};
-  font-family: ${({ theme }) => theme.font.monospace};
-  font-weight: 600;
-  &:hover {
-    background-color: ${(props) => props.theme.color.primary.main};
-    color: ${(props) => props.theme.color.grey[200]};
-  }
+  font-size: 12px;
+  border-radius: 6px;
+  height: 30px;
+  padding: 0 12px;
 `;
 
 const ActionBscScan = styled.a`
-  display: flex;
-  align-self: center;
-  align-items: center;
-  margin-left: 10px;
-  appearance: none;
-  cursor: pointer;
-  font-size: 16px;
-  padding: 2px 8px;
-  color: ${({ theme }) => theme.color.primary.main};
-  border: 3px solid ${({ theme }) => theme.color.primary.main};
-  font-family: ${({ theme }) => theme.font.monospace};
   font-weight: 600;
+  appearance: none;
+  font-family: ${(p) => p.theme.font.heading};
+  color: #ffffff;
+  border-radius: 6px;
+  height: 30px;
+  padding: 0 12px;
+  border: solid 1px #a3212a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: ease-in-out 100ms;
+  text-transform: uppercase;
+  background: transparent;
+  color: #ffffff;
+  border: solid 1px #ffffff;
   text-decoration: none;
+  margin-left: 10px;
+  font-size: 12px;
   &:hover {
-    background-color: ${(props) => props.theme.color.primary.main};
-    color: ${(props) => props.theme.color.grey[200]};
+    border: solid 1px #6b171d;
+    background-color: #6b171d;
   }
 `;
 export default AccountModal;

@@ -42,7 +42,7 @@ const YourCurrentTicketsBox: React.FC<YourCurrentTicketsBoxProps> = ({
   return (
     <Box>
       <BoxHeader>
-        <BoxTitle>Your tickets in this round</BoxTitle>
+        <BoxTitle>Your offerings</BoxTitle>
       </BoxHeader>
       <BoxBody>
         {notStarted ? (
@@ -60,12 +60,12 @@ const YourCurrentTicketsBox: React.FC<YourCurrentTicketsBoxProps> = ({
               {account && (
                 <div className="label-ticket">
                   You have <span className="label-ticket-count">{myTickets?.length ?? 0}</span>{' '}
-                  tickets
+                  offerings
                 </div>
               )}
             </StyledTicketCount>
             <StyledPrice>
-              <span className="number">1</span> Ticket ={' '}
+              <span className="number">1</span> Offering ={' '}
               <span className="number">
                 <NumberDisplay value={costPerTicket} decimals={18} precision={2} />
               </span>{' '}
@@ -74,10 +74,10 @@ const YourCurrentTicketsBox: React.FC<YourCurrentTicketsBoxProps> = ({
             {account ? (
               <StyledButtons>
                 <StyledNavLink to={`/ticket?lotteryId=${lotteryId}`}>
-                  View Tickets
+                  View Offerings
                 </StyledNavLink>
                 <StyledNavLink active="true" to="/buy" disabled={isPastClosing}>
-                  Buy Tickets
+                  Sacrifice Now
                 </StyledNavLink>
               </StyledButtons>
             ) : (

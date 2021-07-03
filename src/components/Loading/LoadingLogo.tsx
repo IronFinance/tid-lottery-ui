@@ -9,7 +9,7 @@ type LoadingLogoProps = {
 export const LoadingLogo: React.FC<LoadingLogoProps> = ({ marginTop, width }) => {
   return (
     <LoadingContainer width={width} marginTop={marginTop}>
-      <img src="/loading-dragon.gif" />
+      <img src="/burning.gif" />
     </LoadingContainer>
   );
 };

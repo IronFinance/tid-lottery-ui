@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { BigNumber } from 'ethers';
-import ImgPool from 'src/assets/img/pool.svg';
+import ImgTitan from 'src/assets/img/TITAN.png';
 import NumberDisplay from 'src/components/Number';
 
 interface LastRoundPrizeBoxProps {
@@ -24,20 +24,20 @@ const LastRoundPrizeBox: React.FC<LastRoundPrizeBoxProps> = ({
       <StyledTotal>
         <div className="content">
           <div className="wrap-prize-title">
-            <img src={ImgPool} />
-            <div className="prize-title">Total Prize:</div>
+            <img src={ImgTitan} />
+            <div className="prize-title">Total Rewards:</div>
           </div>
           <div className="prize-value">
             <NumberDisplay value={total} decimals={18} precision={0} keepZeros={true} />
-            <span className="prize-unit">IRON</span>
+            <span className="prize-unit">TITAN</span>
           </div>
         </div>
       </StyledTotal>
       <StyledTable>
         <thead>
           <tr>
-            <th className="heading">Prize</th>
-            <th className="heading">Prize Pot</th>
+            <th className="heading">Reward</th>
+            <th className="heading">Reward Size</th>
             <th className="heading">Winners</th>
           </tr>
         </thead>
@@ -46,7 +46,7 @@ const LastRoundPrizeBox: React.FC<LastRoundPrizeBoxProps> = ({
             <td className="column">Jackpot</td>
             <td className="column">
               <NumberDisplay value={jackpot} decimals={18} precision={0} keepZeros={true} />
-              <span className="unit">IRON</span>
+              <span className="unit">TITAN</span>
             </td>
             <td className="column">{winners?.[0].toNumber()}</td>
           </tr>
@@ -54,7 +54,7 @@ const LastRoundPrizeBox: React.FC<LastRoundPrizeBoxProps> = ({
             <td className="column">Match 4</td>
             <td className="column">
               <NumberDisplay value={matchFour} decimals={18} precision={0} keepZeros={true} />
-              <span className="unit">IRON</span>
+              <span className="unit">TITAN</span>
             </td>
             <td className="column">{winners?.[1].toNumber()}</td>
           </tr>
@@ -62,7 +62,7 @@ const LastRoundPrizeBox: React.FC<LastRoundPrizeBoxProps> = ({
             <td className="column">Match 3</td>
             <td className="column">
               <NumberDisplay value={matchThree} decimals={18} precision={0} keepZeros={true} />
-              <span className="unit">IRON</span>
+              <span className="unit">TITAN</span>
             </td>
             <td className="column">{winners?.[2].toNumber()}</td>
           </tr>
@@ -76,7 +76,7 @@ const StyledWrapper = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
-  border-right: dashed 1px #d5d5d5;
+  border-right: dashed 1px #303030;
   padding-right: 18px;
   padding-left: 10px;
   padding-bottom: 12px;
@@ -94,15 +94,16 @@ const StyledTotal = styled.div`
   margin-bottom: 0;
   .content {
     display: flex;
-    align-items: center;
     margin-left: 15px;
     .wrap-prize-title {
       display: flex;
       align-items: center;
+      img {
+        width: 40px;
+      }
     }
     .prize-title {
       font-size: 20px;
-      color: #753f41;
       font-weight: bold;
       margin-left: 10px;
     }
@@ -112,7 +113,7 @@ const StyledTotal = styled.div`
       line-height: 1.2;
       text-transform: uppercase;
       font-weight: 700;
-      color: ${({ theme }) => theme.color.orange[500]};
+      color: #ff8a3a;
     }
     .prize-unit {
       font-size: 1.5rem;
@@ -122,26 +123,25 @@ const StyledTotal = styled.div`
     @media (max-width: 768px) {
       display: block;
       .wrap-prize-title {
-
       }
     }
   }
 `;
 
 const StyledTable = styled.table`
-  border: 1px solid #d5d5d5;
+  border: 1px solid #303030;
   margin-top: 20px;
   border-collapse: collapse;
   .heading {
-    background-color: ${({ theme }) => theme.color.blue[50]};
-    color: #753f41;
-    font-weight: bold;
+    background-color: #12161e;
+    color: #b8b8b8;
+    font-weight: 400;
+    font-size: 14px;
     padding: 5px 20px;
   }
   .column {
     padding: 10px 20px;
     font-weight: bold;
-    color: #400003;
     .unit {
       margin-left: 5px;
       font-weight: 500;

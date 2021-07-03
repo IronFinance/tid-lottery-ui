@@ -5,7 +5,7 @@ import theme from 'src/theme';
 import ImgBallSelected from 'src/assets/img/ball-selected.svg';
 import ImgBallNoSelected from 'src/assets/img/ball-no-selected.svg';
 import ImgBallPower from 'src/assets/img/ball-power.svg';
-import ImgRandom from 'src/assets/img/ic-dice.png';
+import IconRandom from 'src/assets/img/ic-dice.svg';
 import IconRemove from 'src/assets/img/remove.svg';
 import { range } from 'src/utils/objects';
 import { rand } from './BuyLottery';
@@ -87,9 +87,9 @@ const SelectTicketItem: React.FC<TicketItemProps> = ({
   return (
     <ContainerItem>
       <HeaderStyled active={isValid}>
-        <TicketNumberStyled>TICKET {index + 1}</TicketNumberStyled>
+        <TicketNumberStyled>OFFERING {index + 1}</TicketNumberStyled>
         <RandomButtonStyled onClick={randomTicket}>
-          <RandomImageStyled></RandomImageStyled>
+          <img src={IconRandom} draggable="false" />
         </RandomButtonStyled>
         <IconRemoveStyled className="fal fa-minus-circle" onClick={handleRemove}>
           <img src={IconRemove} draggable="false" />
@@ -184,7 +184,7 @@ const HeaderStyled = styled.div<{ active?: boolean }>`
   display: flex;
   padding: 8px 12px;
   align-items: center;
-  background-color: #16284e;
+  background-color: ${({ active }) => (active ? '#4024d5' : '#16284e')};
   color: #ffffff;
 `;
 const TicketNumberStyled = styled.h3`
@@ -209,20 +209,13 @@ const IconRemoveStyled = styled.div`
   margin-left: 10px;
 `;
 const RandomButtonStyled = styled.div`
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   margin-right: 5px;
-`;
-const RandomImageStyled = styled.div`
-  width: 20px;
-  height: 20px;
-  background-repeat: none;
-  background-size: cover;
-  background-image: url(${ImgRandom});
 `;
 const BallStyled = styled.div<{ selected?: boolean; isPower?: boolean }>`
   width: 32px;

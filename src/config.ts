@@ -43,15 +43,12 @@ const configurations: { [env: string]: Configuration } = {
 
 export const ExternalLinks = {
   twitter: 'https://twitter.com/IronFinance',
-  documentations: 'https://docs.diamondhand.fi',
   codes: 'https://github.com/ironfinance',
   discord: 'https://discord.gg/HuekxzYj3p',
   medium: 'https://medium.com/@ironfinance',
   telegram: 'https://t.me/ironfinance',
-  buyIron:
-    'https://app.sushi.com/swap?outputCurrency=0xD86b5923F3AD7b585eD81B448170ae026c65ae9a',
-  mintIron:
-    'https://polygon.iron.finance/bank?action=mint&pool=0xD078B62f8D9f5F69a6e6343e3e1eC9059770B830',
+  buyTitan:
+    'https://app.firebird.finance/swap?outputCurrency=0xaAa5B9e6c589642f98a1cDA99B9D024B8407285A',
   rules: 'https://docs.iron.finance/products/dragonball-lottery',
 };
 

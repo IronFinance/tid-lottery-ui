@@ -1,6 +1,8 @@
 import React from 'react';
 import { LotteryInfo } from 'src/diamondhand/Lottery';
 import styled from 'styled-components';
+import ImgBallNormal from 'src/assets/img/ball-normal-large.svg';
+import ImgBallPower from 'src/assets/img/ball-power-large.svg';
 
 interface LastWiningNumberProps {
   lotteryInfo: LotteryInfo;
@@ -28,6 +30,7 @@ const StyledContainer = styled.div`
 const Title = styled.h4`
   text-transform: uppercase;
   font-size: 24px;
+  font-weight: 600;
   margin: 0;
   @media (max-width: 768px) {
     font-size: 20px;
@@ -39,7 +42,6 @@ const NumbersRow = styled.div`
   display: grid;
   grid-gap: 35px;
   grid-template-columns: repeat(5, 1fr);
-  border-top: solid 8px ${({ theme }) => theme.color.primary.main};
   padding: 0 10px;
   margin-top: 20px;
   @media (max-width: 768px) {
@@ -55,8 +57,10 @@ const NumberBox = styled.div`
   margin-top: -5px;
   width: 88px;
   height: 88px;
-  border: solid 3px ${({ theme }) => theme.color.primary.main};
-  background-color: ${({ theme }) => theme.color.orange[300]};
+  background-image: url(${ImgBallNormal});
+  color: #000000;
+  background-size: cover;
+  background-repeat: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,7 +68,7 @@ const NumberBox = styled.div`
   font-size: 42px;
   font-weight: 700;
   &:last-child {
-    background-color: ${({ theme }) => theme.color.red[200]};
+    background-image: url(${ImgBallPower});
   }
   @media (max-width: 768px) {
     width: 66px;

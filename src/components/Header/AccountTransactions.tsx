@@ -48,9 +48,10 @@ const AccountTransactions: React.FC = () => {
 
 const StyledTransactions = styled.div`
   padding: 21px 28px;
-  background: #f2f4f5;
+  background: #1a1e22;
   margin-top: -1px;
-  border-top: solid 1px ${(props) => `${props.theme.color.grey[850]}22`};
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 `;
 
 const TransactionHeader = styled.div`
@@ -60,7 +61,6 @@ const TransactionHeader = styled.div`
 
 const TransactionTitle = styled.div`
   font-size: 18px;
-  color: ${(props) => props.theme.color.grey[850]};
   font-weight: 500;
 `;
 
@@ -76,7 +76,7 @@ const StyledTransactionActions = styled.button`
   appearance: none;
   border: none;
   cursor: pointer;
-  color: ${(props) => props.theme.color.primary.main};
+  color: #fff;
   font-size: 13px;
   font-family: ${({ theme }) => theme.font.sans};
   font-weight: 500;

@@ -20,7 +20,7 @@ export const GlobalStyle = createGlobalStyle`
 
   h1, h2, h3, h4,h5, h6 {
     font-family: ${(p) => p.theme.font.heading};
-    font-weight: normal;
+    font-weight: 600;
   }
 
   code, svg {
@@ -113,11 +113,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    color: ${(p) => p.theme.color.primary.main};
+    color: #ffffff;
+    text-decoration: none;
   }
 
   .text-primary {
-    color: ${(p) => p.theme.color.primary.main};
+    color: #ffffff;
   }
 
   a.link {

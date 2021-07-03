@@ -36,12 +36,12 @@ const TopBanner: React.FC<TopBannerProps> = ({
       </TopCountdownLeft>
       <TopCountdownContent className="content">
         {notReady ? (
-          <h2>The next round is not ready</h2>
+          <h2>The next Sacrifice to the Gods is not ready</h2>
         ) : notStarted ? (
           <h2>Round {lotteryId?.toString()} has not yet started</h2>
         ) : (
           <>
-            <h4>Next draw - Round {lotteryId?.toString()}</h4>
+            <h4>Next Sacrifice - Round {lotteryId?.toString()}</h4>
             {isPastClosing ? (
               <DrawingContainer>Awaiting for results...</DrawingContainer>
             ) : (
@@ -77,8 +77,10 @@ const TopCountdownContent = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-weight: 700;
   h4 {
     margin: 0;
+    font-weight: 500;
   }
   h2 {
     margin: 0;

@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import ticketGold from '../../../assets/img/ticket-gold.svg';
-import ticketRed from '../../../assets/img/ticket-red.svg';
-import ticketSteel from '../../../assets/img/ticket-steel.svg';
+import ticketGold from '../../../assets/img/ball-selected.svg';
+import ticketRed from '../../../assets/img/ball-power.svg';
+import ticketSteel from '../../../assets/img/ball-no-selected.svg';
 import bgTicket from '../../../assets/img/bg-ticket.svg';
-import bgTicketClaim from '../../../assets/img/bg-ticket-claim.svg';
 
 type TicketNumberProps = {
   ticket: number[];
@@ -26,10 +25,7 @@ const TicketNumber: React.FC<TicketNumberProps> = ({
   lost,
 }) => {
   return ticket ? (
-    <StyledTicketItem isSmallSize={isSmallSize} claimed={claimed}>
-      {/* <StyledTicket isSmallSize={isSmallSize}>
-        <img src={imgTicket} />
-      </StyledTicket> */}
+    <StyledTicketItem isSmallSize={isSmallSize}>
       <StyledTicketNumber
         isSmallSize={isSmallSize}
         isDisable={isDisable || (winNumber && !winNumber.includes(ticket[0]))}
@@ -64,20 +60,33 @@ const TicketNumber: React.FC<TicketNumberProps> = ({
       >
         {ticket[4]}
       </StyledTicketNumber>
+      {claimed && <StyledClaimed>Claimed</StyledClaimed>}
     </StyledTicketItem>
   ) : null;
 };
 
 export default TicketNumber;
 
+const StyledClaimed = styled.div`
+  position: absolute;
+  left: -20px;
+  top: 15px;
+  transform: rotate(-45deg);
+  background-color: #ee5626;
+  padding: 1px 25px;
+  font-size: 10px;
+`;
+
 const StyledTicketItem = styled.div<{ isSmallSize?: boolean; claimed?: boolean }>`
   padding: ${({ isSmallSize }) => (isSmallSize ? '10px' : '16px')} 6px;
+  overflow: hidden;
+  position: relative;
   display: grid;
   grid-template-columns: auto auto auto auto auto;
   justify-items: center;
   align-items: center;
-  border-image-source: url(${({ claimed }) => (claimed ? bgTicketClaim : bgTicket)});
-  border-image-slice: ${({ claimed }) => (claimed ? 50 : 25)};
+  border-image-source: url(${bgTicket});
+  border-image-slice: ${25};
   border-image-repeat: stretch;
   border-image-width: 56px;
   border-style: solid;
@@ -88,7 +97,7 @@ const StyledTicketItem = styled.div<{ isSmallSize?: boolean; claimed?: boolean }
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     grid-template-columns: auto auto auto auto auto;
     padding: ${({ isSmallSize }) => (isSmallSize ? '10px' : '0px')} 6px;
-  }
+  } ;
 `;
 
 const StyledTicketNumber = styled.div<{

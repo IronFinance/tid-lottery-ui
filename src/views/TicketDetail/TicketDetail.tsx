@@ -3,9 +3,11 @@ import { Box, BoxHeader } from 'src/components/Box';
 import Container from 'src/components/Container';
 import Page from 'src/components/Page';
 import styled from 'styled-components';
-import imageTicket from '../../assets/img/image-ticket.svg';
-import imageWin from '../../assets/img/image-win.svg';
-import imageClock from '../../assets/img/img-clock.svg';
+import imageTicket from '../../assets/img/ticket-white.svg';
+import imageWin from '../../assets/img/image-win.webp';
+import imageClock from '../../assets/img/img-clock.png';
+import ImgBallNormal from 'src/assets/img/ball-normal-large.svg';
+import ImgBallPower from 'src/assets/img/ball-power-large.svg';
 import bgRound from '../../assets/img/bg_confirm.png';
 import NumberDisplay from 'src/components/Number';
 import NextDrawCountdown from '../DragonBall/components/NextDrawCountdown';
@@ -91,7 +93,7 @@ const TicketDetail: React.FC = () => {
       <Container size="lg">
         <StyledHeader>
           <img src={imageTicket} />
-          TICKETS
+          RESULTS
           <StyledSelect value={roundId} onChange={onSelect}>
             {tickets.map((item, index) => (
               <option key={index} value={item}>
@@ -102,17 +104,17 @@ const TicketDetail: React.FC = () => {
         </StyledHeader>
         <StyledContent>
           <Box>
-            <BoxHeader bg="#ffe970">
+            <BoxHeader>
               <BoxTitle>Round {roundId}</BoxTitle>
               <StyledNumberTicket>
-                Total sold:&nbsp;
+                Total of&nbsp;
                 <NumberDisplay
                   value={lotteryInfo?.numberOfTickets}
                   decimals={0}
                   precision={0}
                   keepZeros={true}
                 />
-                &nbsp;tickets
+                &nbsp;offerings
               </StyledNumberTicket>
             </BoxHeader>
             <BoxBody>
@@ -139,8 +141,8 @@ const TicketDetail: React.FC = () => {
                 <StyledTable compact={!isClose}>
                   <thead>
                     <tr>
-                      <th>Prize</th>
-                      <th>Prize Pot</th>
+                      <th>Reward</th>
+                      <th>Reward Size</th>
                       {isClose && <th>Winners</th>}
                     </tr>
                   </thead>
@@ -158,7 +160,7 @@ const TicketDetail: React.FC = () => {
                           precision={0}
                           keepZeros={true}
                         />
-                        <span>&nbsp;IRON</span>
+                        <span>&nbsp;TITAN</span>
                       </td>
                       {isClose && <td>{lotteryInfo?.winners[0]?.toString() ?? 0}</td>}
                     </tr>
@@ -175,7 +177,7 @@ const TicketDetail: React.FC = () => {
                           precision={0}
                           keepZeros={true}
                         />
-                        <span>&nbsp;IRON</span>
+                        <span>&nbsp;TITAN</span>
                       </td>
                       {isClose && <td>{lotteryInfo?.winners[1]?.toString() ?? 0}</td>}
                     </tr>
@@ -192,7 +194,7 @@ const TicketDetail: React.FC = () => {
                           precision={0}
                           keepZeros={true}
                         />
-                        <span>&nbsp;IRON</span>
+                        <span>&nbsp;TITAN</span>
                       </td>
                       {isClose && <td>{lotteryInfo?.winners[2]?.toString() ?? 0}</td>}
                     </tr>
@@ -214,13 +216,12 @@ const StyledHeader = styled.div`
   display: flex;
   align-items: center;
   font-size: 32px;
-  font-weight: bold;
-  color: #4d0000;
+  font-weight: 600;
   font-family: ${({ theme }) => theme.font.heading};
-  border-bottom: 2px dashed #4d0000;
+  border-bottom: 2px dashed #303030;
   padding: 20px 0px 16px 0px;
   img {
-    width: 68px;
+    width: 38px;
     margin-right: 12px;
   }
 `;
@@ -228,11 +229,11 @@ const StyledHeader = styled.div`
 const StyledSelect = styled.select`
   margin-left: auto;
   padding: 5px 6px;
-  border: solid 2px #400003;
-  background-color: #cbf8ff;
+  border: solid 2px #12161e;
+  background-color: #12161e;
   font-size: 16px;
   font-weight: 600;
-  color: #400003;
+  color: #ffffff;
 `;
 
 const StyledContent = styled.div`
@@ -244,15 +245,14 @@ const StyledContent = styled.div`
 
 const BoxTitle = styled.div`
   font-family: ${({ theme }) => theme.font.heading};
-  font-size: 32px;
-  font-weight: normal;
+  font-size: 24px;
+  font-weight: 600;
 `;
 
 const StyledNumberTicket = styled.div`
   margin-left: auto;
   font-size: 16px;
   font-weight: 600;
-  color: #400003;
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     margin-left: 0px;
   }
@@ -274,13 +274,12 @@ const StyledRound = styled.div`
   align-items: center;
   font-size: 24px;
   font-weight: bold;
-  color: #400003;
   text-align: center;
   background-image: url(${bgRound});
   background-repeat: no-repeat;
   background-size: contain;
   img {
-    width: 140px;
+    height: 120px;
     margin-bottom: 18px;
   }
 `;
@@ -313,11 +312,13 @@ const StyledWinNumberItem = styled.div`
   height: 86px;
   font-size: 48px;
   font-weight: bold;
-  background: #ffe970;
-  border: solid 3px #400003;
+  background-image: url(${ImgBallNormal});
+  color: #000000;
+  background-size: cover;
+  background-repeat: none;
   margin: 0px 40px;
-  :last-child {
-    background: #ff8173;
+  &:last-child {
+    background-image: url(${ImgBallPower});
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     width: 50px;
@@ -336,10 +337,10 @@ const StyledTable = styled.table<{ compact?: boolean }>`
     th {
       width: 33%;
       padding: 6px 0px 0px 20px;
-      background-color: #e7faff;
+      background-color: #303030;
       font-size: 16px;
       font-weight: 500;
-      color: #753f41;
+      color: #c3c4c5;
       :last-child {
         width: 10%;
       }

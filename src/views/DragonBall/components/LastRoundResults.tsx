@@ -20,7 +20,7 @@ const LastRoundResults: React.FC<LastRoundResultsProps> = ({ lotteryId }) => {
       <LastWiningNumber lotteryInfo={lotteryInfo} />
       <Spacer />
       <Box>
-        <BoxHeader bg="#ffe970">
+        <BoxHeader>
           <BoxTitle>Round {lotteryId}</BoxTitle>
           <BoxAction>
             <StyledLinkHistory>
@@ -46,9 +46,14 @@ const LastRoundResults: React.FC<LastRoundResultsProps> = ({ lotteryId }) => {
 };
 
 const StyledLinkHistory = styled.div`
-  font-size: 16px;
-  font-weight: bold;
-  text-decoration: underline;
+  font-size: 14px;
+  font-weight: 600;
+  a {
+    color: #c2c2c2 !important;
+    &:hover {
+      color: #fff !important;
+    }
+  }
 `;
 
 const StyledLastRoundWrapper = styled.div`

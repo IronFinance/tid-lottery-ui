@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo } from 'react';
-import styled, { useTheme } from 'styled-components';
+import styled from 'styled-components';
 import Identicon from 'identicon.js';
 import { useSavedConnector } from 'src/state/application/hooks';
 import { useWeb3React } from '@web3-react/core';
@@ -38,7 +38,6 @@ const AccountButton: React.FC = () => {
   const savedConnector = useSavedConnector();
   const connectors = useWalletConnectors();
   const allTransactions = useAllTransactions();
-  const theme = useTheme();
   const { chainId, defaultProvider } = useConfiguration();
 
   const defaultConnector = useMemo(
@@ -127,7 +126,7 @@ const AccountButton: React.FC = () => {
             {hasPendingTransaction && (
               <>
                 <Spacer size="sm" />
-                <Loading size="18px" color={theme.color.primary.main} />
+                <Loading size="18px" color="#ffffff" />
               </>
             )}
             <Spacer size="xs" />

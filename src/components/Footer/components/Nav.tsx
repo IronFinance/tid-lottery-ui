@@ -8,9 +8,6 @@ const Nav: React.FC = () => {
       <StyledLink target="_blank" href={ExternalLinks.codes}>
         Github
       </StyledLink>
-      <StyledLink target="_blank" href={ExternalLinks.documentations}>
-        Docs
-      </StyledLink>
       <StyledLink target="_blank" href={ExternalLinks.twitter}>
         Twitter
       </StyledLink>

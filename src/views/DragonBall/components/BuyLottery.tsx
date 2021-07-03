@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { BigNumber } from '@ethersproject/bignumber';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/pro-solid-svg-icons';
-import { faCoins } from '@fortawesome/pro-solid-svg-icons';
 import styled from 'styled-components';
 import { TicketItemProp } from 'src/api/models';
 import Container from 'src/components/Container';
@@ -152,7 +151,7 @@ const BuyTickets: React.FC = () => {
         return `Not Enough ${token?.symbol}`;
 
       default:
-        return 'Buy tickets';
+        return 'Sacrifice';
     }
   }, [status, token]);
 
@@ -234,7 +233,7 @@ const BuyTickets: React.FC = () => {
 
     const tx = await handleTransactionReceipt(
       diamondHand?.LOTTERY.batchBuyLottoTicket(info?.lotteryId, validTickets?.length, numbers),
-      `Buy ${validTickets.length} Dragon Ball tickets`,
+      `Buy ${validTickets.length} TITAN offerings`,
     );
 
     if (tx && tx.response) {
@@ -269,10 +268,10 @@ const BuyTickets: React.FC = () => {
             <BuyTicketImagetyled>
               <img src={TicketImg} />
             </BuyTicketImagetyled>
-            <BuyTicketLabeltyled>BUY TICKETS</BuyTicketLabeltyled>
+            <BuyTicketLabeltyled>SACRIFICE YOUR TITAN</BuyTicketLabeltyled>
           </BuyTicketHeaderStyled>
           <StyledHeaderRight>
-            <StyledRole>Buy up to {LIMIT_TICKET} tickets</StyledRole>
+            <StyledRole>Buy up to {LIMIT_TICKET} offerings</StyledRole>
             <Spacer />
             <StyledBuyMultiTicket className="btn" onClick={onPresentBuyMultiTicket}>
               Add multiple
@@ -282,7 +281,7 @@ const BuyTickets: React.FC = () => {
         <StyledWrapBody>
           <StyledBody>
             <NumberTicketHeaderStyled>
-              <StyledLabel>Tickets</StyledLabel>
+              <StyledLabel>Offerings</StyledLabel>
             </NumberTicketHeaderStyled>
             <TicketContainerStyled>
               {tickets.map((ticket, index) => {
@@ -303,7 +302,7 @@ const BuyTickets: React.FC = () => {
                 disabled={tickets?.length >= LIMIT_TICKET}
                 onClick={addNewTicket}
               >
-                <AddNewTicketButtonHeader>Add new ticket</AddNewTicketButtonHeader>
+                <AddNewTicketButtonHeader>Add offering</AddNewTicketButtonHeader>
                 <AddNewTicketButtonPlus>+</AddNewTicketButtonPlus>
               </AddNewTicketButtonStyled>
             </TicketContainerStyled>
@@ -330,7 +329,7 @@ const BuyTickets: React.FC = () => {
               </StyledPaymentHeader>
               <StyledPaymentBody>
                 <StyledFlex>
-                  <label>Price per ticket</label>
+                  <label>Price per offering</label>
                   <BignumberStyled>
                     <NumberDisplay
                       value={info?.costPerTicket}
@@ -342,7 +341,7 @@ const BuyTickets: React.FC = () => {
                   </BignumberStyled>
                 </StyledFlex>
                 <StyledFlex>
-                  <label>Number of tickets</label>
+                  <label>Number of offerings</label>
                   <BignumberStyled>{validTickets?.length}</BignumberStyled>
                 </StyledFlex>
                 <StyledFlex className="total">
@@ -352,7 +351,7 @@ const BuyTickets: React.FC = () => {
                       value={totalCost}
                       decimals={token?.decimals || 18}
                       precision={4}
-                      keepZeros={true}
+                      keepZeros={false}
                     />{' '}
                     {token?.symbol}
                   </AmountStyled>
@@ -369,7 +368,7 @@ const BuyTickets: React.FC = () => {
                   {buttonText}
                 </ApproveButtonStyled>
                 <StyledBuyIRon>
-                  <StyledLink target="_blank" href={ExternalLinks.buyIron}>
+                  <StyledLink target="_blank" href={ExternalLinks.buyTitan}>
                     <StyledFontAwesomeIcon icon={faShoppingCart} />
                     Buy TITAN
                   </StyledLink>
@@ -504,7 +503,7 @@ const BuyTicketImagetyled = styled.div`
 `;
 
 const AmountStyled = styled.span`
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 700;
   color: #2dfc8b;
 `;

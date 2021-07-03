@@ -9,8 +9,8 @@ import Modal, {
 import NumberDisplay from 'src/components/Number';
 import useDiamondHand from 'src/hooks/useDiamondHand';
 import styled from 'styled-components';
-import imgMulti from '../../../assets/img/img-multi.svg';
-import imgTicketInput from '../../../assets/img/ic-ticket-input.svg';
+import imgMulti from '../../../assets/img/ticket.svg';
+import imgTicketInput from '../../../assets/img/ticket-white.svg';
 import { LottoInfo } from 'src/diamondhand/Lottery';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/pro-light-svg-icons';
@@ -79,7 +79,7 @@ const BuyMultiTicketModal: React.FC<BuyMultiTicketProps> = ({
   return (
     <Modal size="md" padding="0">
       <ModalHeader>
-        <ModalTitle>Add multiple tickets</ModalTitle>
+        <ModalTitle>Add multiple offerings</ModalTitle>
         <ModalCloseButton onClick={onDismiss}>
           <FontAwesomeIcon icon={faTimes} />
         </ModalCloseButton>
@@ -87,7 +87,7 @@ const BuyMultiTicketModal: React.FC<BuyMultiTicketProps> = ({
       <ModalBody>
         <StyledChooseTicket>
           <img src={imgMulti} />
-          You can buy upto {limit} tickets
+          You can add to {limit} offerings
         </StyledChooseTicket>
         <StyledBalance>
           <StyledValue>1</StyledValue>
@@ -100,7 +100,7 @@ const BuyMultiTicketModal: React.FC<BuyMultiTicketProps> = ({
               keepZeros={true}
             />
           </StyledValue>
-          <span>IRON</span>
+          <span>TITAN</span>
         </StyledBalance>
         <StyledInputContainer>
           <StyledInput
@@ -115,13 +115,17 @@ const BuyMultiTicketModal: React.FC<BuyMultiTicketProps> = ({
             placeholder={'0'}
           />
           <img src={imgTicketInput} />
-          Tickets
+          Offerings
         </StyledInputContainer>
         <StyledSelect>
           <input type="checkbox" checked={isRandom} onChange={onCheckboxChange} />
-          Randomize all tickets
+          Randomize all offering numbers
         </StyledSelect>
-        <StyledButton disabled={limit === 0 || !numberTicket} onClick={generate}>
+        <StyledButton
+          className="btn"
+          disabled={limit === 0 || !numberTicket}
+          onClick={generate}
+        >
           Generate
         </StyledButton>
       </ModalBody>
@@ -136,9 +140,8 @@ const StyledChooseTicket = styled.div`
   align-items: center;
   font-size: 18px;
   font-weight: 600;
-  color: #4d0000;
   img {
-    width: 46px;
+    height: 30px;
     margin-right: 10px;
   }
 `;
@@ -167,10 +170,9 @@ const StyledInputContainer = styled.div`
   margin-top: 13px;
   font-size: 18px;
   font-weight: 600;
-  color: #400003;
-  border: solid 1px #400003;
+  border: solid 1px #ffffff;
   img {
-    width: 40px;
+    width: 28px;
     margin-right: 10px;
   }
 `;
@@ -178,7 +180,7 @@ const StyledInputContainer = styled.div`
 const StyledInput = styled.input`
   display: flex;
   flex: 1;
-  color: #400003;
+  color: #ffffff;
   position: relative;
   outline: none;
   border: none;
@@ -200,7 +202,6 @@ const StyledSelect = styled.div`
   margin-top: 20px;
   font-size: 18px;
   font-weight: normal;
-  color: #400003;
   input {
     margin-right: 10px;
     width: 20px;
@@ -213,18 +214,5 @@ const StyledSelect = styled.div`
 const StyledButton = styled.button`
   margin-top: 23px;
   padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  font-weight: normal;
-  border: 3px solid ${({ theme }) => theme.color.primary.main};
-  background: ${({ theme }) => theme.color.green[100]};
-  cursor: pointer;
   margin-left: auto;
-  :disabled {
-    cursor: not-allowed;
-    background: ${({ theme }) => theme.color.grey[400]};
-    border: 3px solid ${({ theme }) => theme.color.grey[500]};
-  }
 `;

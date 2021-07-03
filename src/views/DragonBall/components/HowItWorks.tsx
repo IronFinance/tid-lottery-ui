@@ -19,34 +19,30 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ costPerTicket }) => {
           <StyledItem>
             <StyledOrder>1</StyledOrder>
             <StyledContent>
-              One ticket price is{' '}
+              One Offering is{' '}
               <NumberDisplay
                 value={costPerTicket}
                 decimals={18}
                 precision={0}
                 keepZeros={true}
               />{' '}
-              IRON.{' '}
-              <a href={ExternalLinks.mintIron} target="_blank">
-                Mint
-              </a>{' '}
-              or{' '}
-              <a href={ExternalLinks.buyIron} target="_blank">
+              TITAN.{' '}
+              <a href={ExternalLinks.buyTitan} target="_blank">
                 Buy
               </a>{' '}
-              IRON first.
+              TITAN first.
             </StyledContent>
           </StyledItem>
           <StyledItem>
             <StyledOrder>2</StyledOrder>
             <StyledContent>
-              Buy your lottery ticket with IRON. You can buy as many as you want.
+              Sacrifice as many TITAN as you want to receive the Offering numbers.
             </StyledContent>
           </StyledItem>
           <StyledItem>
             <StyledOrder>3</StyledOrder>
             <StyledContent>
-              Lottery draw is every Tuesday and Saturday at 2 PM UTC. You win if your ticket
+              The Sacrifice will happen every day 2 PM UTC. You win if your offering number
               matches at least 3 numbers.{' '}
               <a href={ExternalLinks.rules} target="_blank">
                 See rules and example
@@ -57,11 +53,11 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ costPerTicket }) => {
           <StyledItem>
             <StyledOrder lastOrder>4</StyledOrder>
             <StyledContent>
-              <div>Prize pot allocation: </div>
+              <div>Reward allocation: </div>
               <ul>
-                <li>Jackpot (aka "Match 5"): 80% </li>
-                <li>Match 4: 12% </li>
-                <li>Match 3: 8% </li>
+                <li>Jackpot: 60% </li>
+                <li>Match 4: 30% </li>
+                <li>Match 3: 10% </li>
               </ul>
               In case of more winners in a category, the pot will be divided.
             </StyledContent>

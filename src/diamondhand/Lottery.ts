@@ -33,29 +33,25 @@ export class Lottery extends ContractWrapper {
   }
 
   async getCurrentLottoInfo() {
-    const [
-      [lotto],
-      [prizes],
-      [maxValidRange],
-      [powerBallRange],
-    ] = await this.diamondHand.multicall([
-      {
-        contract: this.contract,
-        method: 'getCurrentLotto',
-      },
-      {
-        contract: this.contract,
-        method: 'getCurrentPrizes',
-      },
-      {
-        contract: this.contract,
-        method: 'maxValidRange_',
-      },
-      {
-        contract: this.contract,
-        method: 'powerBallRange_',
-      },
-    ]);
+    const [[lotto], [prizes], [maxValidRange], [powerBallRange]] =
+      await this.diamondHand.multicall([
+        {
+          contract: this.contract,
+          method: 'getCurrentLotto',
+        },
+        {
+          contract: this.contract,
+          method: 'getCurrentPrizes',
+        },
+        {
+          contract: this.contract,
+          method: 'maxValidRange_',
+        },
+        {
+          contract: this.contract,
+          method: 'powerBallRange_',
+        },
+      ]);
 
     if (!lotto) {
       return {} as LottoInfo;
@@ -115,8 +111,8 @@ export class Lottery extends ContractWrapper {
     return await this.contract.safeCall.manualStartLotto(startingTime, closingTime);
   }
 
-  async drawWinningNumbers(lotteryId: number, seed: number) {
-    return await this.contract.safeCall.drawWinningNumbers(lotteryId, seed);
+  async drawWinningNumbers(lotteryId: number) {
+    return await this.contract.safeCall.drawWinningNumbers(lotteryId);
   }
 
   async batchBuyLottoTicket(

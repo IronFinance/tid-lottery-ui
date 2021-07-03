@@ -47,12 +47,12 @@ const RowNoFlex = styled(AutoRow)`
 const StyledPopupDesc = styled.span`
   font-size: 14px;
   font-weight: 500;
-  color: ${(props) => props.theme.color.primary.main};
+  color: #fff;
 `;
 
 const StyledLink = styled.a`
   font-size: 14px;
-  color: ${(props) => props.theme.color.grey[750]};
+  color: #e2e2e2;
 `;
 
 export default TransactionPopup;

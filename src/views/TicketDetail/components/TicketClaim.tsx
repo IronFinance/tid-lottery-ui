@@ -44,10 +44,10 @@ const TicketClaim: React.FC<TicketClaimProps> = ({ isCloseRound, roundId }) => {
             Total Prize:
             <span>
               &nbsp;
-              <NumberDisplay value={totalClaimable} decimals={18} precision={2} />
+              <NumberDisplay value={totalClaimable} decimals={18} precision={0} />
               &nbsp;
             </span>
-            <span className="symbol">IRON</span>
+            <span className="symbol">TITAN</span>
           </div>
           {winCount > 0 && (
             <StyledClaim>
@@ -57,7 +57,7 @@ const TicketClaim: React.FC<TicketClaimProps> = ({ isCloseRound, roundId }) => {
                     Jackpot:&nbsp;
                     <div className="value">
                       <NumberDisplay value={claimable?.jackpot} decimals={18} precision={2} />{' '}
-                      IRON
+                      TITAN
                     </div>
                   </StyledWinTitle>
                   {filteredTickets?.jackpot?.map((item, index) => (
@@ -77,7 +77,7 @@ const TicketClaim: React.FC<TicketClaimProps> = ({ isCloseRound, roundId }) => {
                     Match four:&nbsp;
                     <div className="value">
                       <NumberDisplay value={claimable?.match4} decimals={18} precision={2} />{' '}
-                      IRON
+                      TITAN
                     </div>
                   </StyledWinTitle>
                   {filteredTickets?.match4?.map((item, index) => (
@@ -97,7 +97,7 @@ const TicketClaim: React.FC<TicketClaimProps> = ({ isCloseRound, roundId }) => {
                     Match three:&nbsp;
                     <div className="value">
                       <NumberDisplay value={claimable?.match3} decimals={18} precision={2} />{' '}
-                      IRON
+                      TITAN
                     </div>
                   </StyledWinTitle>
                   {filteredTickets?.match3?.map((item, index) => (
@@ -114,8 +114,10 @@ const TicketClaim: React.FC<TicketClaimProps> = ({ isCloseRound, roundId }) => {
               <StyledNote>
                 Note: A 30% tax rate is applied on the winner’s prize (automatically deducted)
               </StyledNote>
+              <Spacer />
               <StyledClaimButton
                 disabled={loadingClaim || !isCanClaimReward}
+                className="btn"
                 onClick={claimReward}
               >
                 {loadingClaim && <Loading color="#400003" />}
@@ -161,11 +163,10 @@ const StyledContainer = styled.div`
     align-items: baseline;
     font-size: 24px;
     font-weight: bold;
-    color: #400003;
     span {
       font-size: 32px;
       font-weight: bold;
-      color: #00a74c;
+      color: #2dfc8b;
     }
     .symbol {
       font-size: 24px;
@@ -189,32 +190,22 @@ const StyledWinTitle = styled.div`
   margin-bottom: 16px;
   font-size: 20px;
   font-weight: bold;
-  color: #400003;
   .value {
   }
 `;
 
 const StyledClaimButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
-  margin-top: 8px;
-  border: solid 2px #460000;
-  background: #00f7a4;
+  height: 50px !important;
   font-size: 20px;
-  font-weight: normal;
-  color: #400003;
-  font-family: ${({ theme }) => theme.font.heading};
-  padding: 10px 20px;
-  text-align: center;
-  cursor: pointer;
-  :hover {
-    background-color: #ffe970;
-  }
+  font-weight: 700;
+  padding: 0;
+  line-height: 1;
+  text-transform: uppercase;
   &:disabled {
     background: #d5d5d5;
     color: #877d7d;
+    border-color: #d5d5d5;
     cursor: not-allowed;
   }
 `;

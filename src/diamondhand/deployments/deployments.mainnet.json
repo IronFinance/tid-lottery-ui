@@ -317,28 +317,10 @@
         "type": "function"
       },
       {
-        "inputs": [],
-        "name": "defaultDuration_",
-        "outputs": [
-          {
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
-          }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
         "inputs": [
           {
             "internalType": "uint256",
             "name": "_lotteryId",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "_seed",
             "type": "uint256"
           }
         ],
@@ -529,7 +511,7 @@
         "inputs": [
           {
             "internalType": "address",
-            "name": "_iron",
+            "name": "_titan",
             "type": "address"
           },
           {
@@ -701,11 +683,6 @@
             "internalType": "uint256",
             "name": "_lotteryId",
             "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "_seed",
-            "type": "uint256"
           }
         ],
         "name": "retryDrawWinningNumbers",
@@ -805,19 +782,6 @@
         "type": "function"
       },
       {
-        "inputs": [
-          {
-            "internalType": "address",
-            "name": "_zap",
-            "type": "address"
-          }
-        ],
-        "name": "setZapFunction",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
         "inputs": [],
         "name": "sizeOfLottery_",
         "outputs": [
@@ -898,19 +862,6 @@
       {
         "inputs": [
           {
-            "internalType": "uint256",
-            "name": "_duration",
-            "type": "uint256"
-          }
-        ],
-        "name": "updateDefaultDuration",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [
-          {
             "internalType": "uint16",
             "name": "_maxValidRange",
             "type": "uint16"
@@ -942,19 +893,6 @@
         "type": "function"
       },
       {
-        "inputs": [
-          {
-            "internalType": "address",
-            "name": "newLottoContract",
-            "type": "address"
-          }
-        ],
-        "name": "upgradeNewLotoContract",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
         "inputs": [],
         "name": "upgraded_",
         "outputs": [
@@ -970,27 +908,12 @@
       {
         "inputs": [
           {
-            "internalType": "uint256",
-            "name": "_lotteryId",
-            "type": "uint256"
-          },
-          {
             "internalType": "address",
-            "name": "_receiver",
+            "name": "receiver",
             "type": "address"
-          },
-          {
-            "internalType": "uint8",
-            "name": "_numberOfTickets",
-            "type": "uint8"
-          },
-          {
-            "internalType": "uint16[]",
-            "name": "_chosenNumbersForEachTicket",
-            "type": "uint16[]"
           }
         ],
-        "name": "zapBatchBuyLottoTicket",
+        "name": "withdrawFund",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"

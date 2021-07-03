@@ -28,7 +28,6 @@ const Monitor: React.FC = () => {
   const [startDate, setStartDate] = useState<number>(Math.floor(Date.now() / 1000));
   const [endDate, setEndDate] = useState<number>(0);
   const [roundDraw, setRoundDraw] = useState<number>(0);
-  const [seedDraw, setSeedDraw] = useState<number>(0);
   const [data, setData] = useState<ConfigurationInfo>({} as ConfigurationInfo);
   const { deployments } = config;
 
@@ -75,7 +74,7 @@ const Monitor: React.FC = () => {
   const drawWinningNumbers = async () => {
     try {
       const tx = await handleTransactionReceipt(
-        dh.LOTTERY?.drawWinningNumbers(roundDraw, seedDraw),
+        dh.LOTTERY?.drawWinningNumbers(roundDraw),
         `Draw winning lottery`,
       );
       if (tx && tx.response) {
@@ -109,7 +108,7 @@ const Monitor: React.FC = () => {
         <StyledDoubleCol>
           <StyledCol>
             <Box>
-              <BoxHeader bg="#86e3ff">
+              <BoxHeader>
                 <BoxTitle>Information</BoxTitle>
               </BoxHeader>
               <BoxBody>
@@ -126,7 +125,7 @@ const Monitor: React.FC = () => {
                       precision={0}
                       keepZeros={true}
                     />{' '}
-                    IRON
+                    TITAN
                   </div>
                 </div>
                 <div>
@@ -147,18 +146,6 @@ const Monitor: React.FC = () => {
                   </div>
                 </div>
                 <hr />
-                <div className="item">
-                  <div className="title">Zap contract balance:</div>
-                  <div className="value">
-                    <NumberDisplay
-                      value={data?.zapBalance}
-                      decimals={18}
-                      precision={2}
-                      keepZeros={true}
-                    />{' '}
-                    IRON
-                  </div>
-                </div>
                 <div className="item">
                   <div className="title">Prize reserve pool:</div>
                   <div className="value">
@@ -226,7 +213,7 @@ const Monitor: React.FC = () => {
 
           <StyledCol>
             <Box>
-              <BoxHeader bg="#ffbbe2">
+              <BoxHeader>
                 <BoxTitle>Contracts</BoxTitle>
               </BoxHeader>
               <BoxBody>
@@ -245,7 +232,7 @@ const Monitor: React.FC = () => {
           </StyledCol>
           <StyledCol>
             <Box>
-              <BoxHeader bg="#86e3ff">
+              <BoxHeader>
                 <BoxTitle>Start New Lottery</BoxTitle>
               </BoxHeader>
               <BoxBody>
@@ -271,14 +258,16 @@ const Monitor: React.FC = () => {
                   </div>
                 </StyledSelectDateWrapper>
                 <StyledButtons>
-                  <StyledButton onClick={manualStart}>Manual Start</StyledButton>
+                  <StyledButton className="btn" onClick={manualStart}>
+                    Manual Start
+                  </StyledButton>
                 </StyledButtons>
               </BoxBody>
             </Box>
           </StyledCol>
           <StyledCol>
             <Box>
-              <BoxHeader bg="#86e3ff">
+              <BoxHeader>
                 <BoxTitle>Draw lottery</BoxTitle>
               </BoxHeader>
               <BoxBody>
@@ -289,15 +278,10 @@ const Monitor: React.FC = () => {
                     placeholder="Enter round number"
                   />
                 </StyledInputs>
-                <StyledInputs>
-                  <Input
-                    onChange={(val) => setSeedDraw(val)}
-                    value={seedDraw}
-                    placeholder="Enter seed"
-                  />
-                </StyledInputs>
                 <StyledButtons>
-                  <StyledButton onClick={drawWinningNumbers}>Draw Winning Numbers</StyledButton>
+                  <StyledButton className="btn" onClick={drawWinningNumbers}>
+                    Draw Winning Numbers
+                  </StyledButton>
                 </StyledButtons>
               </BoxBody>
             </Box>
@@ -319,11 +303,20 @@ const StyledDoubleCol = styled.div`
     display: block;
     margin-top: 12px;
   }
+  hr {
+    border: 0;
+    border-top: dashed 1px #a2a2a2;
+    background-color: transparent;
+    margin: 15px 0;
+  }
 `;
 
 const StyledCol = styled.div`
   width: 100%;
   height: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  color: #e2e2e2;
   @media (max-width: 768px) {
     margin-bottom: 16px;
   }
@@ -354,7 +347,7 @@ export const BoxListItemLink = styled.a`
   border: none;
   padding-left: 0px;
   text-decoration: none;
-  color: ${(props) => props.theme.color.primary.main};
+  color: #e2e2e2;
   &:hover {
     text-decoration: underline;
   }
@@ -377,32 +370,10 @@ const StyledInputs = styled.div`
   margin-top: 20px;
 `;
 
-const StyledButton = styled.button<{
-  isTransparent?: boolean;
-  disabled?: boolean;
-  normal?: boolean;
-}>`
-  font-size: 16px;
-  appearance: none;
-  font-family: ${(p) => p.theme.font.heading};
-  color: ${({ theme }) => theme.color.primary.main};
-  border: solid 3px ${({ theme }) => theme.color.primary.main};
-  height: 46px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 24px;
-  pointer-events: ${({ disabled }) => (disabled ? 'none' : 'auto')};
-  cursor: pointer;
-  transition: ease-in-out 100ms;
-  text-decoration: none;
-  &:hover {
-    background-color: ${(p) => p.theme.color.bg};
-  }
-  margin: ${({ normal }) => (normal ? '30px auto' : '20px 0')};
-  width: ${({ normal }) => (normal ? 'auto' : '100%')};
-  background-color: ${({ disabled, theme, isTransparent }) =>
-    disabled ? theme.color.grey[400] : isTransparent ? 'transparent' : theme.color.green[100]};
+const StyledButton = styled.button`
+  width: 100%;
+  padding: 20px 20px !important;
+  margin-top: 15px;
 `;
 
 const StyledSelectDateWrapper = styled.div`

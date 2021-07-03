@@ -100,7 +100,7 @@ const StyledCol = styled.div`
 
 const Separator = styled.div`
   height: 1px;
-  border-top: dashed 3px ${(props) => props.theme.color.primary.main};
+  border-top: dashed 3px #303030;
   margin: 30px 0;
 `;
 

@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import styled from 'styled-components';
 import { useConfiguration } from '../../contexts/ConfigProvider/ConfigProvider';
-import { ButtonAction } from '../ButtonAction';
 import Modal, { ModalCloseButton, ModalHeader, ModalTitle } from '../Modal';
 import { StyledLoaderContainer } from '../WaitingApproval/WaitingApproval';
 import { Gif } from '../Gif/Gif';
@@ -30,17 +29,23 @@ const WaitingApprovalResult: React.FC<WaitingApprovalResultProps> = ({
       </ModalHeader>
       <StyledModalContent>
         <StyledLoaderContainer>
-          <Gif src="/loading-dragon.gif" />
+          <Gif src="/burning.gif" />
         </StyledLoaderContainer>
         <StyledView href={`${config.etherscanUrl}/tx/${transactionHash}`} target="_blank">
           View on Explorer&nbsp;
           <FontAwesomeIcon icon={faExternalLink} />
         </StyledView>
-        <ButtonAction onClick={onDismiss}>Close</ButtonAction>
+        <ButtonAction className="btn btn-success" onClick={onDismiss}>
+          Close
+        </ButtonAction>
       </StyledModalContent>
     </Modal>
   );
 };
+
+const ButtonAction = styled.button`
+  height: 48px !important;
+`;
 
 const StyledModalContent = styled.div`
   display: grid;
@@ -54,13 +59,9 @@ const StyledModalContent = styled.div`
 const StyledView = styled.a`
   font-size: 13px;
   text-align: center;
-  color: ${(props) => props.theme.color.primary.main};
   font-weight: 400;
   margin-bottom: 20px;
   text-decoration: none !important;
-  :hover {
-    color: ${(props) => props.theme.color.orange[600]};
-  }
 `;
 
 export default WaitingApprovalResult;

@@ -8,9 +8,6 @@ import NumberDisplay from 'src/components/Number';
 interface RoundPrizeBoxProps {
   total: BigNumber;
   prizes: BigNumber[];
-  // jackpot: BigNumber;
-  // matchFour: BigNumber;
-  // matchThree: BigNumber;
   ticketsSold: BigNumber;
 }
 
@@ -21,13 +18,13 @@ const RoundPrizeBox: React.FC<RoundPrizeBoxProps> = ({ total, prizes, ticketsSol
   return (
     <Box>
       <BoxHeader>
-        <BoxTitle>Prize pool for this round</BoxTitle>
+        <BoxTitle>Rewards for this round</BoxTitle>
       </BoxHeader>
       <BoxBody>
         <StyledTotal>
           <img src={ImgCup} />
           <div className="content">
-            <div>Current Prize Pool</div>
+            <div>Current Total Rewards</div>
             <div className="prize-value">
               <NumberDisplay value={total} decimals={18} precision={0} keepZeros={true} />
               <span className="prize-unit">TITAN</span>
@@ -36,35 +33,35 @@ const RoundPrizeBox: React.FC<RoundPrizeBoxProps> = ({ total, prizes, ticketsSol
         </StyledTotal>
         <StyledPrizeTable>
           <div className="row header">
-            <div className="left">Prize</div>
+            <div className="left">Reward</div>
             <div className="right">Value</div>
           </div>
           <div className="row">
             <div className="left">Jackpot</div>
             <div className="right jackpot">
               <NumberDisplay value={jackpot} decimals={18} precision={0} keepZeros={true} />
-              <span className="prize-unit">IRON</span>
+              <span className="prize-unit">TITAN</span>
             </div>
           </div>
           <div className="row">
             <div className="left">Match 4</div>
             <div className="right">
               <NumberDisplay value={matchFour} decimals={18} precision={0} keepZeros={true} />
-              <span className="prize-unit">IRON</span>
+              <span className="prize-unit">TITAN</span>
             </div>
           </div>
           <div className="row">
             <div className="left">Match 3</div>
             <div className="right">
               <NumberDisplay value={matchThree} decimals={18} precision={0} keepZeros={true} />
-              <span className="prize-unit">IRON</span>
+              <span className="prize-unit">TITAN</span>
             </div>
           </div>
           <div className="row row-total">
             <div className="total-ticket-sold">
-              Total sold:{' '}
+              Total:{' '}
               <NumberDisplay value={ticketsSold} decimals={0} precision={0} keepZeros={true} />{' '}
-              tickets
+              offerings
             </div>
           </div>
         </StyledPrizeTable>
