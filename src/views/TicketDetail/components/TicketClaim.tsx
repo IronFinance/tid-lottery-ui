@@ -206,6 +206,6 @@ const StyledClaimButton = styled.button`
     background: #d5d5d5;
     color: #877d7d;
     border-color: #d5d5d5;
-    cursor: not-allowed;
+    pointer-events: none;
   }
 `;

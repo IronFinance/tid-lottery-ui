@@ -58,16 +58,15 @@ const StyledSite = styled.div``;
 
 const StyledHeaderContainer = styled.div`
   width: 100%;
-  /* padding: 30px 44px; */
-  margin-bottom: 20px;
-  padding: 20px 8px 0 8px;
+  margin-bottom: 5px;
+  padding: 10px 8px 0 8px;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
     padding: 20px 24px 0 24px;
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-    padding: 30px 44px;
+    padding: 10px 24px;
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     padding: 20px 16px 0 16px;

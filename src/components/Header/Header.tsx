@@ -9,9 +9,9 @@ const Header: React.FC = () => {
   return (
     <StyledHeader>
       <StyledLeftHeader>
-        <LogoLink to="/">
+        {/* <LogoLink to="/">
           <Logo src={imgLogo} />
-        </LogoLink>
+        </LogoLink> */}
       </StyledLeftHeader>
       <Spacer size="xs" />
       <AccountButton />

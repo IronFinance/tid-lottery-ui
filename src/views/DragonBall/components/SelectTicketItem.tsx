@@ -99,12 +99,12 @@ const SelectTicketItem: React.FC<TicketItemProps> = ({
         {slots.map((i) => {
           return (
             <BallStyled key={i} selected={!!ticketItem.selectedNumbers[i]}>
-              {ticketItem.selectedNumbers[i] || ''}
+              {ticketItem.selectedNumbers[i] || '?'}
             </BallStyled>
           );
         })}
         <BallStyled selected={ticketItem.selectedPowerNumber > 0} isPower={true}>
-          {ticketItem.selectedPowerNumber ? ticketItem.selectedPowerNumber : ''}
+          {ticketItem.selectedPowerNumber ? ticketItem.selectedPowerNumber : '?'}
         </BallStyled>
       </SelectedBallContainerStyled>
       <NormalBallContainerStyted>

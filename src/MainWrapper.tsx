@@ -24,7 +24,7 @@ const StyledMainContent = styled.div`
   &::before {
     background-image: url(${bgLottery});
     background-repeat: no-repeat;
-    background-position: bottom center;
+    background-position: top center;
     background-size: cover;
     content: '';
     height: 100vh;

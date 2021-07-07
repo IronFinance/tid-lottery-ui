@@ -44,6 +44,10 @@ const StyledWrapper = styled.div`
     width: 100%;
     padding-top: 20px;
   }
+
+  .icon-reward {
+    width: 200px;
+  }
 `;
 
 const StyledTicketCount = styled.div`

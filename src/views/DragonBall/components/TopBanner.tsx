@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import NextDrawCountdown from './NextDrawCountdown';
 import ImgBannerLeft from 'src/assets/img/banner-left.webp';
 import ImgBannerRight from 'src/assets/img/banner-right.svg';
+import Banner from 'src/assets/img/banner_lottery.png';
 import isPast from 'date-fns/isPast';
 
 interface TopBannerProps {
@@ -30,36 +31,42 @@ const TopBanner: React.FC<TopBannerProps> = ({
   }, [closingTimestamp]);
 
   return (
-    <TopCountdownBanner small={notReady} className={notReady ? 'small' : ''}>
-      <TopCountdownLeft className="left">
-        <img src={ImgBannerLeft} />
-      </TopCountdownLeft>
-      <TopCountdownContent className="content">
-        {notReady ? (
-          <h2>The next Sacrifice to the Gods is not ready</h2>
-        ) : notStarted ? (
-          <h2>Round {lotteryId?.toString()} has not yet started</h2>
-        ) : (
-          <>
-            <h4>Next Sacrifice - Round {lotteryId?.toString()}</h4>
-            {isPastClosing ? (
-              <DrawingContainer>Awaiting for results...</DrawingContainer>
-            ) : (
-              <NextDrawCountdown to={closingTimestamp} />
-            )}
-          </>
-        )}
-      </TopCountdownContent>
-      <TopCountdownRight className="right">
-        <img src={ImgBannerRight} />
-      </TopCountdownRight>
-    </TopCountdownBanner>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <img style={{ width: '95%' }} src={Banner} />
+      <TopCountdownBanner small={notReady} className={notReady ? 'small' : ''}>
+        <TopCountdownContent className="content">
+          {notReady ? (
+            <h2>The next Sacrifice to the Gods is not ready</h2>
+          ) : notStarted ? (
+            <h2>Round {lotteryId?.toString()} has not yet started</h2>
+          ) : (
+            <>
+              <h4>Next Sacrifice - Round {lotteryId?.toString()}</h4>
+              {isPastClosing ? (
+                <DrawingContainer>Awaiting for results...</DrawingContainer>
+              ) : (
+                <NextDrawCountdown to={closingTimestamp} />
+              )}
+            </>
+          )}
+        </TopCountdownContent>
+      </TopCountdownBanner>
+    </div>
   );
 };
 
 const TopCountdownBanner = styled.div<{ small?: boolean }>`
+  margin-top: 20px;
   position: relative;
   background-color: #a3212a;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
