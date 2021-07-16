@@ -142,7 +142,7 @@ const Monitor: React.FC = () => {
                   <div className="title">Prize pool:</div>
                   <div className="value">
                     <NumberDisplay value={total} decimals={18} precision={0} keepZeros={true} />{' '}
-                    IRON
+                    TITAN
                   </div>
                 </div>
                 <hr />
@@ -155,7 +155,7 @@ const Monitor: React.FC = () => {
                       precision={2}
                       keepZeros={true}
                     />{' '}
-                    IRON
+                    TITAN
                   </div>
                 </div>
                 <div className="item">

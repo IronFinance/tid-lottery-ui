@@ -316,14 +316,15 @@ const BuyTickets: React.FC = () => {
                   onSelected={onChangePaymentToken}
                 />
                 <StyledBalance>
-                  <span>Balance: </span>
+                  <span>Balance:</span>
+                  {'   '}
                   <BignumberStyled>
                     <NumberDisplay
                       value={balance}
                       decimals={token?.decimals || 18}
                       precision={0}
                     />
-                  </BignumberStyled>
+                  </BignumberStyled>{' '}
                   <span className="unit">{token?.symbol}</span>
                 </StyledBalance>
               </StyledPaymentHeader>
@@ -391,6 +392,7 @@ const StyledPaymentContent = styled.div`
 const StyledPaymentHeader = styled.div`
   border-bottom: 1px dashed #303030;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding-bottom: 12px;
 `;
@@ -602,13 +604,10 @@ const StyledHeaderRight = styled.div`
 `;
 
 const StyledBalance = styled.div`
-  font-size: 0.85rem;
-  display: flex;
-  align-items: center;
+  font-size: 0.75rem;
   color: #c0c0c0;
   .unit {
-    font-weight: 700;
-    margin-left: 5px;
+    font-weight: 500;
   }
 `;
 const StyledBuyIRon = styled.div`

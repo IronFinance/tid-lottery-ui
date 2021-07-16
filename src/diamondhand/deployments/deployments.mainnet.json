@@ -1,6 +1,6 @@
 {
   "Lottery": {
-    "address": "0xc22D2c4F9Cc14B952DAed5FD7Bc275032505bB75",
+    "address": "0x413eca106ba5ceAaC5BC1fDE9101cb066DC8c02A",
     "abi": [
       {
         "inputs": [
@@ -934,7 +934,7 @@
     ]
   },
   "PrizeReservePool": {
-    "address": "0x2fb6B067f43f0C5b7793feE4E3a4F92eC7800f29",
+    "address": "0xd36E411d891C3f49FA4e2c27420da6BE85cc0B8e",
     "abi": [
       {
         "inputs": [
@@ -1072,7 +1072,7 @@
     ]
   },
   "RandomNumberGenerator": {
-    "address": "0x8cE36C485F02E7B8F97586DAf34a1731125e8049",
+    "address": "0x6DFab84f3517b5e2E62EAf190B5DD7c7F3613000",
     "abi": [
       {
         "inputs": [
@@ -1274,7 +1274,7 @@
     ]
   },
   "Ticket": {
-    "address": "0xb5E120Fb6Fa70C87018Ad2a7580535F286341242",
+    "address": "0xf96F7FAd6729b2506cb713ae87f98158DbA41Dd8",
     "abi": [
       {
         "inputs": [
@@ -2027,7 +2027,7 @@
     ]
   },
   "TaxService": {
-    "address": "0xc4964BA8acfb2Ea8233c676cFf39e69459Cf1Aba",
+    "address": "0x71f6DB6817fddFED796eCA516ec17BB295279278",
     "abi": [
       {
         "anonymous": false,

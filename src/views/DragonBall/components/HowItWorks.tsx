@@ -122,7 +122,7 @@ const StyledContent = styled.div`
     color: ${(p) => p.theme.color.orange[500]};
     font-weight: 600;
     &:hover {
-      color: ${(p) => p.theme.color.primary.main};
+      color: ${(p) => p.theme.color.orange[300]};
     }
   }
   @media (max-width: 768px) {

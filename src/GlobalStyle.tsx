@@ -124,7 +124,7 @@ export const GlobalStyle = createGlobalStyle`
   a.link {
     color: ${({ theme }) => theme.color.grey[200]};
     &:hover {
-      color: ${(p) => p.theme.color.green[100]};
+      color: ${(p) => p.theme.color.green[300]};
     }
   }
 
